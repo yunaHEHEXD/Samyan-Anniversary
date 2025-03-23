@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAPPY ANNIVERSARY MY LOVE PHONE MYAT AUNG!!!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            transition: background-color 0.5s ease;
+            background-color: #ffe6ea;
+            color: black;
+        }
+        .container {
+            margin-top: 15%;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        h1 {
+            font-size: 48px;
+        }
+        p {
+            font-size: 28px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 22px;
+            border: none;
+            background-color: #ff4d6d;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.7s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            z-index: 2;
+        }
+        button:hover {
+            background-color: #ff3366;
+            transform: scale(1.1);
+        }
+        .top-right {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        .fade-out {
+            opacity: 0;
+            transform: scale(0.9) translateY(-20px);
+        }
+        .fade-in {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+        .letter-box {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background: white;
+            padding: 20px;
+            text-align: left;
+            font-size: 24px;
+            overflow-y: auto;
+            z-index: 1;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+            border: 10px solid #f9c2d5;
+        }
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 20px;
+            animation: floatUp 1s ease-in-out forwards;
+        }
+        @keyframes floatUp {
+            0% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-50px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container fade-in" id="content">
+        <h1>HAPPY ANNIVERSARY MY LOVE PHONE MYAT AUNG!!! 💖</h1>
+        <p>I LOVE YOU SO MUCH!!! ❤️😘💋</p>
+    </div>
+    <button id="actionButton" onclick="toggleContent()" onmouseover="startHeartSpawn(this)" onmouseout="stopHeartSpawn()">Click Here!!! XD</button>
+    <div id="letterBox" class="letter-box">
+        <p>💖 Dear Zammy💖,</p>
+        <p>💝 Happy Anniversary! 💓 Babe, you have been there for me every hour, minute, and second. 💗 You're a crucial part of my life. I can't live without you. 💞 I will do anything just to be with you. 💖 Babe, thank you so much for all the things you have given me. 💘 Thank you for your love that has given me hope and joy, helping me through the hardships of my life. ❣️ Thank you for your loyalty, showing me the joy of having someone I can always trust and depend on. 💞 Zammy, I will forever be with you, no matter what. 💖 I will make sure our future is eternal, just me and you forever, filled with hope, love, kindness, trust, loyalty, honesty, communication, and devotion to one another. 💗 I am truly thankful for all of this, my love. 💓</p>
+        <p>💞With all my love💞,</p>
+        <p>😘 Your Yuan XD 😘</p>
+    </div>
+    
+    <script>
+        let heartInterval;
+        
+        function toggleContent() {
+            let content = document.getElementById('content');
+            let button = document.getElementById('actionButton');
+            let letterBox = document.getElementById('letterBox');
+            
+            if (content.classList.contains('fade-out')) {
+                content.classList.remove('fade-out');
+                content.classList.add('fade-in');
+                button.classList.remove('top-right');
+                button.innerText = "Click Here!!! XD";
+                letterBox.style.display = "none";
+            } else {
+                content.classList.remove('fade-in');
+                content.classList.add('fade-out');
+                button.classList.add('top-right');
+                button.innerText = "Go to Home XD!";
+                letterBox.style.display = "block";
+            }
+        }
+        
+        function spawnHearts(button) {
+            const heart = document.createElement("span");
+            heart.innerHTML = "😘";
+            heart.classList.add("heart");
+            
+            const x = Math.random() * button.offsetWidth;
+            const y = Math.random() * button.offsetHeight;
+            
+            heart.style.left = `${x}px`;
+            heart.style.top = `${y}px`;
+            heart.style.position = "absolute";
+            
+            button.appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 1000);
+        }
+        
+        function startHeartSpawn(button) {
+            heartInterval = setInterval(() => spawnHearts(button), 200);
+        }
+        
+        function stopHeartSpawn() {
+            clearInterval(heartInterval);
+        }
+    </script>
+</body>
+</html>
